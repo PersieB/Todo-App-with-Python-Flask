@@ -1,0 +1,36 @@
+{% extends "index.html" %}
+{% block title %}
+<title>About</title>
+{% endblock title %}
+{% block main %}
+<div class="topnav">
+	<a href="/">Home</a>
+	<a href="/login">Login</a>
+	<a class="active" href="/about">About</a>
+	<a href="/privacy">Privacy</a>
+	<a href="/terms">Terms</a>
+  </div>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <!-- Do something with the message -->
+      <div class="alert alert-{{ category}} alert-dismissible" role="alert">
+        <span> {{ message }}</span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<div class="container-login100">
+    <div class="wrap-login100">
+        <p>This application was created in July 2021, by myself (Percy Brown), after a wonderful
+			"Full Stack Development with Flask" session on <a href="https://www.pirple.com/" target="_blank"style="color: red;">Pirple.com</a>
+		</p>
+		<p>It is free and easy to use. Users can add multiple todo items and various tasks under each.
+			They will be able to update todo titles and task activities, as well as check off task statuses where needed
+		</p>
+
+        
+    </div>
+</div>
+{% endblock main %}
